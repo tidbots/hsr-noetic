@@ -1,0 +1,3 @@
+[submodule "sample/hsrb_samples"]
+	path = sample/hsrb_samples
+	url = https://git.hsr.io/tmc/hsrb_samples.git
