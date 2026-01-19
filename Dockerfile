@@ -152,8 +152,6 @@ RUN echo "export ROS_MASTER_URI=http://${ROBOT_NAME}.local:11311" >> ~/.bashrc
 RUN echo "export PS1=\"\[\033[44;1;37m\]<hsrc>\[\033[0m\]\w$ \"" >> ~/.bashrc
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 RUN echo "source ~/catkin_ros/devel/setup.bash" >> ~/.bashrc
-RUN echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-RUN echo "source ${WORKSPACE_DIR}/devel/setup.bash" >> ~/.bashrc
 RUN echo "export MESA_LOADER_DRIVER_OVERRIDE=i965" >> ~/.bashrc
 
 RUN source /opt/ros/noetic/setup.bash && \
