@@ -103,12 +103,9 @@ $ sim_mode
 $ roslaunch hsrb_gazebo_launch hsrc_apartment_world.launch
 ```
 
-![screenshot](https://gitlab.com/okadalaboratory/robot/hsr-development/hsr-noetic/-/raw/images/Screenshot_from_2023-09-24_11-26-28__1_.png)
+![](/fig/Screenshot_from_2023-09-24_11-26-28__1_.png)
 
-![screenshot](https://gitlab.com/okadalaboratory/robot/hsr-development/hsr-noetic/-/raw/images/Screenshot_from_2023-09-24_11-26-44__1_.png
-)
-
-![Test Image 1](fig/)
+![](/fig/Screenshot_from_2023-09-24_11-26-44__1_.png)
 
 ## 実機で開発する
 
