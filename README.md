@@ -31,11 +31,11 @@ chronyを使った時刻同期の手順は[HSRユーザマニュアルの時刻�
 ## インストール
 ```
 $ cd ~
-$ git clone 
+$ git clone https://github.com/tidbots/hsr_noetic.git
 $ cd hsr_noetic
 $ docker compose build
 ```
-イメージがokdhryk/hsr:noetic-nvidiaという名前で作成されます。
+イメージが hsr:noetic-nvidia という名前で作成されます。
 イメージ名を変更したい場合は、compose.ymlを編集してください。
 
 ## 設定ファイルの編集
