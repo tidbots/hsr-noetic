@@ -97,24 +97,55 @@ $ cd ~/hsr_noetic
 $ docker compose exec hsr_noetic /bin/bash
 ```
 
-## シミュレーションで開発する
+## シミュレータで開発する
+### シミュレータの起動
 ```
 $ sim_mode
-$ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch 
+$ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
 ```
-
 ![](/fig/Screenshot_from_2023-09-24_11-26-28__1_.png)
 
 ![](/fig/Screenshot_from_2023-09-24_11-26-44__1_.png)
 
 
+### 会場ガイドのサンプル
+https://docs.hsr.io/hsr_develop_manual/python_interface/hsr_guide_sample.html#id2
 
+サンプルを実行すると、ロボットが会場を一周して案内します。
+```
+cd ~/roboworks/sample
+$ python3 guide_mega.py
+```
 
+### 把持のサンプル
+https://docs.hsr.io/hsr_develop_manual/python_interface/hsr_pick_sample.html
 
+マーカ認識で把持をするサンプルです。
 
+1. ARマーカ付きの物体を出現させる
+[ARマーカ](https://docs.hsr.io/hsr_develop_manual/python_interface/marker_interface.html#spawn-bottle-with-marker-label) を参照
 
+```
+roslaunch spawn_bottle_with_marker.launch
+```
+以下のようにgazebo上にマーカ付きのボトルが出現したと思います。
 
+![](/fig/.png)
 
+2. 把持プログラムの実行
+```
+python3 grasp_bottle.py
+```
+
+### ROSのインターフェースを使う
+https://docs.hsr.io/hsr_develop_manual/ros_interface/ros_interface.html を参照
+
+サンプルプログラムは　~/catkin_ros/src/ にあります。
+
+例えば、頭を動かすサンプルは　https://docs.hsr.io/hsr_develop_manual/ros_interface/ros_controller_head.html　にあるように,下記のコマンドを実行して下さい。
+```
+rosrun hsrb_motion_samples head_message.py
+```
 
 
 
