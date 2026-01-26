@@ -100,12 +100,24 @@ $ docker compose exec hsr_noetic /bin/bash
 ## シミュレーションで開発する
 ```
 $ sim_mode
-$ roslaunch hsrb_gazebo_launch hsrc_apartment_world.launch
+$ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch 
 ```
 
 ![](/fig/Screenshot_from_2023-09-24_11-26-28__1_.png)
 
 ![](/fig/Screenshot_from_2023-09-24_11-26-44__1_.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 実機で開発する
 
