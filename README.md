@@ -31,8 +31,8 @@ chronyを使った時刻同期の手順は[HSRユーザマニュアルの時刻�
 ## インストール
 ```
 $ cd ~
-$ git clone https://github.com/tidbots/hsr_noetic.git
-$ cd hsr_noetic
+$ git clone https://github.com/tidbots/hsr-noetic.git
+$ cd hsr-noetic
 $ docker compose build
 ```
 イメージが hsr:noetic-nvidia という名前で作成されます。
@@ -88,13 +88,13 @@ drwxr-x--- 24 ユーザ名 グループ名 4096 12月 31 23:31 ..
 ## コンテナの実行
 下記のコマンドでコンテナを起動します
 ```
-$ cd ~/hsr_noetic
+$ cd ~/hsr-noetic
 $ docker compose up
 ```
 ホストコンピュータの別の端末から起動中のコンテナに入るには下記のコマンドを実行します。
 ```
-$ cd ~/hsr_noetic
-$ docker compose exec hsr_noetic /bin/bash
+$ cd ~/hsr-noetic
+$ docker compose exec hsr-noetic /bin/bash
 ```
 
 ## シミュレータで開発する
