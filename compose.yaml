@@ -17,6 +17,8 @@ services:
         - ROBOT_NAME=${ROBOT_NAME}
         - WORKSPACE_DIR=${WORKSPACE_DIR}
         - NETWORK_IF=${NETWORK_IF}
+        - HSR_USER=${HSR_USER}
+        - HSR_PASSWORD=${HSR_PASSWORD}
 #      network: host
     security_opt:
     - seccomp:unconfined

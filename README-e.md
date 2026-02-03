@@ -56,6 +56,8 @@ Configuration variables:
 | `WORKSPACE_DIR` | Directory shared with host | `/home/roboworks/share` |
 | `NETWORK_IF` | Network interface connected to robot | `eth0` |
 | `ROBOT_NAME` | HSR hostname | `hsrc28` |
+| `HSR_USER` | HSR package repository username | (Obtain from Toyota HSR support) |
+| `HSR_PASSWORD` | HSR package repository password | (Obtain from Toyota HSR support) |
 
 You can check the network interface name with:
 ```

@@ -56,6 +56,8 @@ $ nano .env  # または任意のエディタで編集
 | `WORKSPACE_DIR` | ホストと共有するディレクトリ | `/home/roboworks/share` |
 | `NETWORK_IF` | ロボットと接続するネットワークIF | `eth0` |
 | `ROBOT_NAME` | HSRのホスト名 | `hsrc28` |
+| `HSR_USER` | HSRパッケージリポジトリのユーザー名 | （トヨタHSRサポートから取得） |
+| `HSR_PASSWORD` | HSRパッケージリポジトリのパスワード | （トヨタHSRサポートから取得） |
 
 ネットワークインターフェース名は以下のコマンドで確認できます：
 ```

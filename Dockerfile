@@ -105,14 +105,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /tmp/tmux
 
 # Install HSR ROS packages
-RUN sh -c 'echo "deb [arch=amd64] https://hsr-user:jD3k4G2e@packages.hsr.io/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/tmc.list' \
- && sh -c 'echo "deb [arch=amd64] https://hsr-user:jD3k4G2e@packages.hsr.io/tmc/ubuntu `lsb_release -cs` multiverse main" >> /etc/apt/sources.list.d/tmc.list' \
+# HSR repository credentials (obtain from Toyota HSR support)
+ARG HSR_USER
+ARG HSR_PASSWORD
+RUN sh -c "echo \"deb [arch=amd64] https://\${HSR_USER}:\${HSR_PASSWORD}@packages.hsr.io/ros/ubuntu \$(lsb_release -cs) main\" > /etc/apt/sources.list.d/tmc.list" \
+ && sh -c "echo \"deb [arch=amd64] https://\${HSR_USER}:\${HSR_PASSWORD}@packages.hsr.io/tmc/ubuntu \$(lsb_release -cs) multiverse main\" >> /etc/apt/sources.list.d/tmc.list" \
  && sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' \
- && wget -qO - https://hsr-user:jD3k4G2e@packages.hsr.io/tmc.key | apt-key add - \
+ && wget -qO - "https://${HSR_USER}:${HSR_PASSWORD}@packages.hsr.io/tmc.key" | apt-key add - \
  && wget -qO - https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
  && wget -qO - https://packages.osrfoundation.org/gazebo.key | apt-key add - \
  && mkdir -p /etc/apt/auth.conf.d \
- && echo -e "machine packages.hsr.io\nlogin hsr-user\npassword jD3k4G2e" > /etc/apt/auth.conf.d/auth.conf \
+ && echo -e "machine packages.hsr.io\nlogin ${HSR_USER}\npassword ${HSR_PASSWORD}" > /etc/apt/auth.conf.d/auth.conf \
  && echo -e "Package: ros-noetic-laser-ortho-projector\nPin: version 0.3.3*\nPin-Priority: 1001\n\n\
 Package: ros-noetic-laser-scan-matcher\nPin: version 0.3.3*\nPin-Priority: 1001\n\n\
 Package: ros-noetic-laser-scan-sparsifier\nPin: version 0.3.3*\nPin-Priority: 1001\n\n\
