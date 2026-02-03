@@ -39,7 +39,28 @@ The image will be created with the name hsr:noetic-nvidia.
 If you want to change the image name, edit compose.yaml.
 
 ## Editing Configuration Files
-Edit the .env file according to your environment.
+Copy `.env.example` to `.env` and edit it according to your environment.
+```
+$ cp .env.example .env
+$ nano .env  # or use any editor
+```
+
+Configuration variables:
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `USER_NAME` | Username inside the container | `roboworks` |
+| `GROUP_NAME` | Group name inside the container | `roboworks` |
+| `UID` | User ID (check with `id -u`) | `1000` |
+| `GID` | Group ID (check with `id -g`) | `1000` |
+| `PASSWORD` | Password for the container user | `your_password` |
+| `WORKSPACE_DIR` | Directory shared with host | `/home/roboworks/share` |
+| `NETWORK_IF` | Network interface connected to robot | `eth0` |
+| `ROBOT_NAME` | HSR hostname | `hsrc28` |
+
+You can check the network interface name with:
+```
+$ ip link show
+```
 
 ## Important Notes Before First Run
 Directory creation, file editing, package installation, etc. performed in the Docker container will not be reflected in the Docker image and will be lost when the container is destroyed.

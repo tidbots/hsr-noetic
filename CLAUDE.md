@@ -16,7 +16,7 @@ docker compose build
 docker compose up
 
 # Access running container from another terminal
-docker compose exec hsr-noetic /bin/bash
+docker compose exec hsr_noetic /bin/bash
 ```
 
 ## Development Modes
@@ -31,10 +31,16 @@ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
 
 ## Key Environment Configuration
 
-Edit `.env` before building:
+Copy `.env.example` to `.env` and edit before building:
+```bash
+cp .env.example .env
+```
+
+Configuration variables:
 - `USER_NAME`, `GROUP_NAME`, `UID`, `GID`: Container user settings
+- `PASSWORD`: Container user password
 - `WORKSPACE_DIR`: Shared directory between host and container (default: `/home/roboworks/share`)
-- `NETWORK_IF`: Ethernet interface for robot connectivity
+- `NETWORK_IF`: Ethernet interface for robot connectivity (check with `ip link show`)
 - `ROBOT_NAME`: Robot hostname (e.g., `hsrc28`)
 
 **Important**: Create the shared directory on the host before first run to avoid permission issues:
