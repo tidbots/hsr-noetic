@@ -94,7 +94,7 @@ $ docker compose up
 ホストコンピュータの別の端末から起動中のコンテナに入るには下記のコマンドを実行します。
 ```
 $ cd ~/hsr-noetic
-$ docker compose exec hsr-noetic /bin/bash
+$ docker compose exec hsr_noetic /bin/bash
 ```
 
 ## シミュレータで開発する
@@ -113,7 +113,7 @@ https://docs.hsr.io/hsr_develop_manual/python_interface/hsr_guide_sample.html#id
 
 サンプルを実行すると、ロボットが会場を一周して案内します。
 ```
-cd ~/roboworks/scripts
+cd ~/scripts
 python3 guide_mega.py
 ```
 

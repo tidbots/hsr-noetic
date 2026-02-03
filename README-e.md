@@ -93,7 +93,7 @@ $ docker compose up
 To enter the running container from another terminal on the host computer, execute:
 ```
 $ cd ~/hsr-noetic
-$ docker compose exec hsr-noetic /bin/bash
+$ docker compose exec hsr_noetic /bin/bash
 ```
 
 ## Developing with the Simulator
@@ -112,7 +112,7 @@ https://docs.hsr.io/hsr_develop_manual/python_interface/hsr_guide_sample.html#id
 
 When you run the sample, the robot will tour and guide you around the venue.
 ```
-cd ~/roboworks/scripts
+cd ~/scripts
 python3 guide_mega.py
 ```
 
