@@ -1,0 +1,15 @@
+# Copyright (c) 2023 Hiroyuki Okada
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
+USER_NAME=roboworks
+GROUP_NAME=roboworks
+UID=1000
+GID=1000
+PASSWORD=tamagawa
+WORKSPACE_DIR=/home/roboworks/share
+NETWORK_IF=enx245ebe7f410b
+ROBOT_NAME=hsrc28
+
+# HSR package repository credentials
+HSR_USER=hsr-user
+HSR_PASSWORD=jD3k4G2e
