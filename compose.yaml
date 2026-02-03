@@ -2,8 +2,8 @@
 # This software is released under the MIT License.
 # http://opensource.org/licenses/mit-license.php
 services:
-  hsr_noetic:
-    container_name: hsr_noetic
+  hsr-noetic:
+    container_name: hsr-noetic
     image: hsr:noetic-nvidia
     build:
       context: .
