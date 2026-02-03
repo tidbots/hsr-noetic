@@ -16,7 +16,7 @@ docker compose build
 docker compose up
 
 # Access running container from another terminal
-docker compose exec hsr_noetic /bin/bash
+docker compose exec hsr-noetic /bin/bash
 ```
 
 ## Development Modes

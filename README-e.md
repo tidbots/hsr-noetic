@@ -116,7 +116,7 @@ $ docker compose up
 To enter the running container from another terminal on the host computer, execute:
 ```
 $ cd ~/hsr-noetic
-$ docker compose exec hsr_noetic /bin/bash
+$ docker compose exec hsr-noetic /bin/bash
 ```
 
 ## Developing with the Simulator

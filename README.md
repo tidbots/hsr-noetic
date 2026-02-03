@@ -117,7 +117,7 @@ $ docker compose up
 ホストコンピュータの別の端末から起動中のコンテナに入るには下記のコマンドを実行します。
 ```
 $ cd ~/hsr-noetic
-$ docker compose exec hsr_noetic /bin/bash
+$ docker compose exec hsr-noetic /bin/bash
 ```
 
 ## シミュレータで開発する
