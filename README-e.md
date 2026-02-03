@@ -151,35 +151,92 @@ rosrun hsrb_motion_samples head_message.py
 
 ## Developing with the Physical Robot
 
+When developing with the physical robot, do not use simulator mode (sim_mode). The ROS environment variables must be configured to connect to the robot.
+
+### Preparation: Configuring the .env File
+Before connecting to the physical robot, correctly configure the robot name and network interface in the `.env` file.
+```
+ROBOT_NAME=hsrc28
+NETWORK_IF=enx245ebe7f410b
+```
+- `ROBOT_NAME`: Your HSR's hostname (e.g., hsrb, hsrc28, etc.)
+- `NETWORK_IF`: The network interface name connected to the robot
+
+You can check the network interface name with the following command:
+```
+$ ip link show
+```
 
 ### Verifying Time Synchronization
-Verify that the time is synchronized between your PC and the HSR.
-```
-$
-```
+Verify that the time is synchronized between your PC and the HSR. Time discrepancies can cause ROS communication issues.
 
+Run the following command on the host PC to check chrony's synchronization status:
 ```
-$ ihsrb
+$ chronyc sources
 ```
+If a server is marked with `^*`, synchronization is working correctly.
+
+To check the time difference with the HSR, run the following inside the container:
+```
+$ ntpdate -q hsrc28.local
+```
+An offset within a few milliseconds is acceptable.
 
 ### Verifying Connection to the Physical Robot
+Verify that the robot is visible on the network.
 ```
-$ ping hsrb.local
+$ ping hsrc28.local
+PING hsrc28.local (192.168.190.1) 56(84) bytes of data.
+64 bytes from hsrc28.local (192.168.190.1): icmp_seq=1 ttl=64 time=0.5 ms
+```
+If you receive a response, the connection is working. If there is no response, check the network settings and robot power.
 
-```
-### Verify that ROS-related environment variables are correctly set.
+### Verifying ROS Environment Variables
+Verify that the ROS environment variables are correctly set inside the container.
 ```
 $ env | grep ROS
-ROS_MASTER_URI=http://hsrb.local:11311
+ROS_MASTER_URI=http://hsrc28.local:11311
 ROS_IP=192.168.190.20
 ```
+- `ROS_MASTER_URI`: Address of the robot's ROS master
+- `ROS_IP`: IP address of the development PC (automatically configured)
 
+If `ROS_IP` is empty, verify that `NETWORK_IF` is correctly set in the `.env` file.
 
+### Verifying ROS Topics
+Verify that you can connect to the ROS master.
+```
+$ rostopic list
+```
+If a list of topics is displayed, the connection to the robot is successful.
+
+To check the robot's state, run:
+```
+$ rostopic echo /hsrb/robot_state
+```
 
 ### Try the Sample Programs (Toyota Official)
+You can run the same sample programs on the physical robot as in the simulator.
+
+Head movement sample:
 ```
-$ rosrun
+$ rosrun hsrb_motion_samples head_message.py
 ```
+
+Robot movement sample:
+```
+$ rosrun hsrb_motion_samples omni_base_move.py
+```
+
+Other samples are located in `~/catkin_ros/src/`. To see the list of available samples:
+```
+$ rosrun hsrb_motion_samples [TAB][TAB]
+```
+
+### Safety Notes
+- Before operating the physical robot, ensure there are no obstacles around it
+- In case of emergency, press the robot's emergency stop button
+- Maintain a safe distance when testing with the physical robot
 
 
 
