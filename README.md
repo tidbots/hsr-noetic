@@ -124,8 +124,10 @@ $ docker compose exec hsr_noetic /bin/bash
 ### シミュレータの起動
 ```
 $ sim_mode
-$ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
+$ roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch robot_name:=hsrc
 ```
+
+**注意**: `robot_name:=hsrc`（または`robot_name:=hsrb`）の指定が必要です。`.env`ファイルの`ROBOT_NAME`には実機のホスト名（例：`hsrc28`）を設定しますが、シミュレータは汎用のロボットモデル（`hsrc`または`hsrb`）のみをサポートしています。この引数を指定しないと、URDFファイルが見つからないエラーが発生します。
 ![](/fig/Screenshot_from_2023-09-24_11-26-28__1_.png)
 
 ![](/fig/Screenshot_from_2023-09-24_11-26-44__1_.png)

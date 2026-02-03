@@ -24,8 +24,10 @@ docker compose exec hsr_noetic /bin/bash
 **Simulator mode** (inside container):
 ```bash
 sim_mode  # Sets ROS to use localhost
-roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
+roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch robot_name:=hsrc
 ```
+
+**Note**: The `robot_name:=hsrc` (or `robot_name:=hsrb`) argument is required. The `.env` file sets `ROBOT_NAME` to your physical robot's hostname (e.g., `hsrc28`), but the simulator only supports generic model types (`hsrc` or `hsrb`). Without this argument, the launch will fail with "No such file or directory" for the URDF file.
 
 **Physical robot mode**: Container automatically configures ROS_MASTER_URI to the robot hostname defined in `.env` (ROBOT_NAME). Requires chrony time synchronization between host PC and robot.
 
